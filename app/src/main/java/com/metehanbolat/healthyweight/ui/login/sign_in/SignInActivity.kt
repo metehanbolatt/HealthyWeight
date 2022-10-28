@@ -19,12 +19,5 @@ class SignInActivity : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
 
-        viewModel.control.observe(this) {
-            println("Geldik $it")
-        }
-
-        binding.textView.setOnClickListener {
-            viewModel.controlCheck("Metehan")
-        }
     }
 }
