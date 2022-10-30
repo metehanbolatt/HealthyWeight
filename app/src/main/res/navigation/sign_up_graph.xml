@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/sign_up_graph"
+    app:startDestination="@id/chooseGenderFragment">
+
+    <fragment
+        android:id="@+id/chooseGenderFragment"
+        android:name="com.metehanbolat.healthyweight.ui.login.sign_up.choosegender.ChooseGenderFragment"
+        android:label="fragment_choose_gender"
+        tools:layout="@layout/fragment_choose_gender" >
+        <action
+            android:id="@+id/action_chooseGenderFragment_to_chooseHeightFragment"
+            app:destination="@id/chooseHeightFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/chooseHeightFragment"
+        android:name="com.metehanbolat.healthyweight.ui.login.sign_up.chooseheight.ChooseHeightFragment"
+        android:label="fragment_choose_height"
+        tools:layout="@layout/fragment_choose_height" />
+</navigation>

@@ -3,7 +3,9 @@ package com.metehanbolat.healthyweight.ui.login.sign_in
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.metehanbolat.healthyweight.model.auth.Member
 import com.metehanbolat.healthyweight.repository.auth.AuthRepository
+import com.metehanbolat.healthyweight.util.UiState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
@@ -12,10 +14,13 @@ class SignInActivityViewModel @Inject constructor(
     val repository: AuthRepository
 ) : ViewModel() {
 
-    private val _control = MutableLiveData<String>()
-    val control: LiveData<String> = _control
+    private val _signUpMember = MutableLiveData<UiState<Member>>()
+    val signUpMember: LiveData<UiState<Member>> get() =  _signUpMember
 
-    fun controlCheck(name: String) {
-        _control.value = repository.signIn(name)
+    /*
+    fun signUpMember(member: Member) {
+        _signUpMember.value = UiState.Loading
+        repository.signUp(member) { _signUpMember.value = it }
     }
+     */
 }
