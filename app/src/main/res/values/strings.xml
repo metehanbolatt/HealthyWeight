@@ -2,8 +2,12 @@
     <string name="app_name">Healthy Weight</string>
     <string name="app_logo">App Logo</string>
     <string name="email">Email</string>
-    <string name="password">Şifre</string>
-    <string name="button_text_enter">Giriş</string>
-    <string name="not_yet_with_us">Henüz üye değil misiniz?</string>
-    <string name="sign_up_now">Kayıt Ol!</string>
+    <string name="password">Password</string>
+    <string name="button_text_enter">Login</string>
+    <string name="not_yet_with_us">Not registered yet?</string>
+    <string name="sign_up_now">Register Now!</string>
+    <string name="man_image">Man Image</string>
+    <string name="woman_image">Woman Image</string>
+    <string name="your_gender">Your Gender</string>
+    <string name="next">Next</string>
 </resources>
