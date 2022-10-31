@@ -13,31 +13,33 @@
         android:fontFamily="@font/lemonmilk"
         android:text="@string/your_gender"
         android:textSize="38sp"
-        app:layout_constraintBottom_toTopOf="@id/genderMan"
+        android:textColor="@color/green"
+        app:layout_constraintBottom_toTopOf="@id/genderMale"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
-        android:id="@+id/genderMan"
+        android:id="@+id/genderMale"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="40dp"
         android:contentDescription="@string/man_image"
-        android:src="@drawable/unselected_man"
+        android:src="@drawable/gender_male"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/genderWoman"
+        app:layout_constraintEnd_toStartOf="@+id/genderFemale"
         app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/genderWoman"
+        android:id="@+id/genderFemale"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:contentDescription="@string/woman_image"
-        android:src="@drawable/unselected_woman"
+        android:src="@drawable/gender_female"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/genderMan"
+        app:layout_constraintStart_toEndOf="@+id/genderMale"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
@@ -50,7 +52,7 @@
         android:textSize="35sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/genderMan" />
+        app:layout_constraintTop_toBottomOf="@id/genderMale" />
 
     <Button
         android:id="@+id/nextButton"

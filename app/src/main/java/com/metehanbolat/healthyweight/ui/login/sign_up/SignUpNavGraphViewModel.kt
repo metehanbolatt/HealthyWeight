@@ -14,11 +14,8 @@ class SignUpNavGraphViewModel @Inject constructor(
     private val _chosenGender = MutableLiveData<String>()
     val chosenGender: LiveData<String> = _chosenGender
 
-    fun graphViewModelDen() {
-        println("Çalışıyor viewmodel")
-    }
-
     fun setChosenGender(chosenGender: String) {
         _chosenGender.value = chosenGender
     }
+
 }

@@ -2,7 +2,7 @@
     <!-- Base application theme. -->
     <style name="Theme.HealthyWeight" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/day_green</item>
+        <item name="colorPrimary">@color/green</item>
         <item name="colorPrimaryVariant">@color/purple_700</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
@@ -10,7 +10,7 @@
         <item name="colorSecondaryVariant">@color/teal_700</item>
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
-        <item name="android:statusBarColor">@color/day_green</item>
+        <item name="android:statusBarColor">@color/green</item>
         <!-- Customize your theme here. -->
     </style>
 
@@ -27,7 +27,7 @@
     
     <style name="ButtonStyle">
         <item name="android:textAllCaps">false</item>
-        <item name="android:backgroundTint">@color/day_green</item>
+        <item name="android:backgroundTint">@color/green</item>
         <item name="android:textColor">@color/white</item>
         <item name="android:layout_marginEnd">@dimen/_50dp</item>
         <item name="android:layout_marginStart">@dimen/_50dp</item>
@@ -37,15 +37,15 @@
     </style>
 
     <style name="SignUpTextStyle">
-        <item name="android:textColor">@color/day_green</item>
+        <item name="android:textColor">@color/green</item>
         <item name="android:text">@string/sign_up_now</item>
         <item name="android:textStyle">bold</item>
         <item name="android:fontFamily">@font/righteous</item>
     </style>
 
     <style name="InputEntryEditTextStyle" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
-        <item name="boxStrokeColor">@color/text_input_layout_day_state</item>
-        <item name="hintTextColor">@color/day_green</item>
+        <item name="boxStrokeColor">@color/green</item>
+        <item name="hintTextColor">@color/green</item>
     </style>
 
 </resources>

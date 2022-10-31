@@ -8,11 +8,10 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
-    <color name="green">#44CD4A</color>
+    <color name="green">#308F33</color>
     <color name="app_name_text_gray">#C5C5C5</color>
 
     <color name="gender_male_color">#2ACDEF</color>
     <color name="gender_female_color">#FF21A6</color>
-    <color name="gender_color_unselected">#5A5A5A</color>
 
 </resources>
