@@ -11,6 +11,7 @@ import androidx.navigation.navGraphViewModels
 import com.metehanbolat.healthyweight.R
 import com.metehanbolat.healthyweight.databinding.FragmentChooseGenderBinding
 import com.metehanbolat.healthyweight.ui.login.sign_up.SignUpNavGraphViewModel
+import com.metehanbolat.healthyweight.ui.login.sign_up.choosegender.model.ChosenGenderInstance
 import com.metehanbolat.healthyweight.util.setImageTintListWithContextCompat
 import com.metehanbolat.healthyweight.util.setTextColorWithContextCompat
 import com.metehanbolat.healthyweight.util.visible

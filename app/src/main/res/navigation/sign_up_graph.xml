@@ -12,7 +12,11 @@
         tools:layout="@layout/fragment_choose_gender" >
         <action
             android:id="@+id/action_chooseGenderFragment_to_chooseHeightFragment"
-            app:destination="@id/chooseHeightFragment" />
+            app:destination="@id/chooseHeightFragment"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right" />
     </fragment>
     <fragment
         android:id="@+id/chooseHeightFragment"

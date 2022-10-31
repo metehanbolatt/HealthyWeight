@@ -6,6 +6,10 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.content.ContextCompat
 
+fun ImageView.setImageDrawableWithContextCompat(drawable: Int) {
+    this.setImageDrawable(ContextCompat.getDrawable(this.context, drawable))
+}
+
 fun ImageView.setImageTintListWithContextCompat(imageTint: Int) {
     this.imageTintList = ColorStateList.valueOf(ContextCompat.getColor(this.context, imageTint))
 }

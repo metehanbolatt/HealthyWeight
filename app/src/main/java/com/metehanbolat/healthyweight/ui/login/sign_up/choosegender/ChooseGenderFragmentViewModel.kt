@@ -4,6 +4,8 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.metehanbolat.healthyweight.R
+import com.metehanbolat.healthyweight.ui.login.sign_up.choosegender.model.ChosenGenderInstance
+import com.metehanbolat.healthyweight.ui.login.sign_up.choosegender.model.Gender
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
@@ -36,16 +38,4 @@ class ChooseGenderFragmentViewModel @Inject constructor(
         )
     }
 
-}
-
-data class ChosenGenderInstance(
-    val genderMaleColor: Int,
-    val genderFemaleColor: Int,
-    val selectedGenderText: String,
-    val selectedGenderTextColor: Int
-)
-
-enum class Gender(val gender: String) {
-    MALE("Male"),
-    FEMALE("Female")
 }
