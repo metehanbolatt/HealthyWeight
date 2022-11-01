@@ -10,4 +10,6 @@
     <string name="woman_image">Woman Image</string>
     <string name="your_gender">Your Gender</string>
     <string name="next">Next</string>
+
+    <string name="error_text">*Please do not leave blank.</string>
 </resources>

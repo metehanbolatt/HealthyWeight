@@ -4,9 +4,11 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.viewModels
+import com.metehanbolat.healthyweight.R
 import com.metehanbolat.healthyweight.databinding.ActivitySignInBinding
 import com.metehanbolat.healthyweight.ui.login.sign_up.SignUpActivity
 import com.metehanbolat.healthyweight.util.UiState
+import com.metehanbolat.healthyweight.util.validateRule
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -22,9 +24,12 @@ class SignInActivity : AppCompatActivity() {
         setContentView(view)
 
         binding.enterButton.setOnClickListener {
-            Intent(this, SignUpActivity::class.java).apply {
-                startActivity(this)
+            if (emptyFieldControl()) {
+                Intent(this, SignUpActivity::class.java).apply {
+                    startActivity(this)
+                }
             }
+
             /*
             val member = Member(
                 email = binding.emailText.text.toString(),
@@ -48,5 +53,11 @@ class SignInActivity : AppCompatActivity() {
                 }
             }
         }
+    }
+
+    private fun emptyFieldControl(): Boolean {
+        val emailTextEmptyRule = binding.emailText.validateRule(R.string.error_text) { it.isNullOrEmpty() }
+        val passwordTextEmptyRule = binding.passwordText.validateRule(R.string.error_text) { it.isNullOrEmpty() }
+        return emailTextEmptyRule && passwordTextEmptyRule
     }
 }
