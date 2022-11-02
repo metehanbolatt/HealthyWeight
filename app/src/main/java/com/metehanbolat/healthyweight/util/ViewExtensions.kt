@@ -1,7 +1,12 @@
 package com.metehanbolat.healthyweight.util
 
+import android.annotation.SuppressLint
+import android.app.Activity
+import android.content.Context
 import android.content.res.ColorStateList
+import android.graphics.Rect
 import android.view.View
+import android.view.inputmethod.InputMethodManager
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.content.ContextCompat
@@ -20,4 +25,35 @@ fun TextView.setTextColorWithContextCompat(color: Int) {
 
 fun View.visible() {
     this.visibility = View.VISIBLE
+}
+
+@SuppressLint("ClickableViewAccessibility")
+fun View.lostFocus(view: View, activity: Activity) {
+    this.setOnTouchListener { _, event ->
+        val rect = Rect()
+        view.getHitRect(rect)
+        if (!rect.contains(event.x.toInt(), event.y.toInt())) {
+            val manager = activity.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+            manager.hideSoftInputFromWindow(this.windowToken, 0)
+            this.clearFocus()
+        }
+        true
+    }
+
+}
+
+@SuppressLint("ClickableViewAccessibility")
+fun View.lostFocusList(viewList: List<View>, activity: Activity) {
+    this.setOnTouchListener { _, event ->
+        viewList.forEach {
+            val rect = Rect()
+            it.getHitRect(rect)
+            if (!rect.contains(event.x.toInt(), event.y.toInt())) {
+                val manager = activity.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+                manager.hideSoftInputFromWindow(this.windowToken, 0)
+                this.clearFocus()
+            }
+        }
+        true
+    }
 }
