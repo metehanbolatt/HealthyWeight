@@ -49,7 +49,7 @@ class ChooseHeightFragment : Fragment() {
         binding.heightPicker.minValue = 120
         binding.heightPicker.maxValue = 250
 
-        binding.heightPicker.setOnValueChangedListener { picker, oldVal, newVal ->
+        binding.heightPicker.setOnValueChangedListener { _, _, newVal ->
             binding.humanImage.layoutParams.height = newVal * 3
             binding.humanImage.requestLayout()
         }

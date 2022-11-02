@@ -27,19 +27,8 @@ fun View.visible() {
     this.visibility = View.VISIBLE
 }
 
-@SuppressLint("ClickableViewAccessibility")
-fun View.lostFocus(view: View, activity: Activity) {
-    this.setOnTouchListener { _, event ->
-        val rect = Rect()
-        view.getHitRect(rect)
-        if (!rect.contains(event.x.toInt(), event.y.toInt())) {
-            val manager = activity.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-            manager.hideSoftInputFromWindow(this.windowToken, 0)
-            this.clearFocus()
-        }
-        true
-    }
-
+fun View.gone() {
+    this.visibility = View.GONE
 }
 
 @SuppressLint("ClickableViewAccessibility")

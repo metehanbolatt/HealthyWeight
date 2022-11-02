@@ -4,18 +4,21 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.viewModels
-import com.metehanbolat.healthyweight.R
 import com.metehanbolat.healthyweight.databinding.ActivitySignInBinding
-import com.metehanbolat.healthyweight.ui.login.sign_up.SignUpActivity
-import com.metehanbolat.healthyweight.util.UiState
-import com.metehanbolat.healthyweight.util.validateRule
+import com.metehanbolat.healthyweight.ui.main.home.HomeActivity
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class SignInActivity : AppCompatActivity() {
+class SignInActivity : AppCompatActivity(){
 
     private lateinit var binding: ActivitySignInBinding
+
     private val viewModel: SignInActivityViewModel by viewModels()
+
+    override fun onStart() {
+        super.onStart()
+        currentUserObserver()
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,41 +26,14 @@ class SignInActivity : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
 
-        binding.enterButton.setOnClickListener {
-            if (emptyFieldControl()) {
-                Intent(this, SignUpActivity::class.java).apply {
-                    startActivity(this)
-                }
-            }
-
-            /*
-            val member = Member(
-                email = binding.emailText.text.toString(),
-                password = binding.passwordText.text.toString()
-            )
-            viewModel.signUpMember(member)
-
-             */
-        }
-
-        viewModel.signUpMember.observe(this) { memberState ->
-            when(memberState) {
-                is UiState.Loading -> {
-                    println("Loading")
-                }
-                is UiState.Success -> {
-                    println(memberState.data)
-                }
-                is UiState.Failure -> {
-                    println(memberState.error)
-                }
-            }
-        }
     }
 
-    private fun emptyFieldControl(): Boolean {
-        val emailTextEmptyRule = binding.emailText.validateRule(R.string.error_text) { it.isNullOrEmpty() }
-        val passwordTextEmptyRule = binding.passwordText.validateRule(R.string.error_text) { it.isNullOrEmpty() }
-        return emailTextEmptyRule && passwordTextEmptyRule
+    private fun currentUserObserver() {
+        viewModel.currentUser.observe(this) {
+            Intent(this, HomeActivity::class.java).apply {
+                startActivity(this)
+                finish()
+            }
+        }
     }
 }

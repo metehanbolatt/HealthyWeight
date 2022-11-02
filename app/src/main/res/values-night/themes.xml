@@ -39,8 +39,7 @@
     <style name="SignUpTextStyle">
         <item name="android:textColor">@color/green</item>
         <item name="android:text">@string/sign_up_now</item>
-        <item name="android:textStyle">bold</item>
-        <item name="android:fontFamily">@font/righteous</item>
+        <item name="android:fontFamily">@font/lemonmilk</item>
     </style>
 
     <style name="InputEntryEditTextStyle" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">

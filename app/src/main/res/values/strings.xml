@@ -4,6 +4,7 @@
     <string name="email">Email</string>
     <string name="password">Password</string>
     <string name="button_text_enter">Login</string>
+    <string name="button_text_exit">Log out</string>
     <string name="not_yet_with_us">Not registered yet?</string>
     <string name="sign_up_now">Register Now!</string>
     <string name="man_image">Man Image</string>
@@ -11,5 +12,5 @@
     <string name="your_gender">Your Gender</string>
     <string name="next">Next</string>
 
-    <string name="error_text">*Please do not leave blank.</string>
+    <string name="error_text">*Please do not leave blank</string>
 </resources>
