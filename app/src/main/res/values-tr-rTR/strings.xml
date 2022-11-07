@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Healthy Weight</string>
+
+    <string name="app_logo">Uygulama Logosu</string>
+    <string name="email">Email</string>
+    <string name="password">Şifre</string>
+    <string name="button_text_enter">Giriş</string>
+    <string name="button_text_exit">Çıkış</string>
+    <string name="not_yet_with_us">Henüz Kayıt Olmadınız mı?</string>
+    <string name="sign_up_now">Kayıt Ol!</string>
+    <string name="man_image">Erkek Resmi</string>
+    <string name="woman_image">Kadın Resmi</string>
+    <string name="your_gender">Cinsiyetiniz</string>
+    <string name="your_height">Boyunuz</string>
+    <string name="your_weight">Kilonuz</string>
+    <string name="your_birthday">Doğum Tarihiniz</string>
+    <string name="next">İleri</string>
+
+    <string name="error_text">*Lütfen boş bırakmayınız</string>
+
+</resources>

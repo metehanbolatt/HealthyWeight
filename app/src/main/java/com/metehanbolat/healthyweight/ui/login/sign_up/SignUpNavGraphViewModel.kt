@@ -14,8 +14,22 @@ class SignUpNavGraphViewModel @Inject constructor(
     private val _chosenGender = MutableLiveData<String>()
     val chosenGender: LiveData<String> = _chosenGender
 
+    private val _chosenHeight = MutableLiveData<Int>()
+    val chosenHeight: LiveData<Int> = _chosenHeight
+
+    private val _chosenWeight = MutableLiveData<Int>()
+    val chosenWeight: LiveData<Int> = _chosenWeight
+
     fun setChosenGender(chosenGender: String) {
         _chosenGender.value = chosenGender
+    }
+
+    fun setChosenHeight(chosenHeight: Int) {
+        _chosenHeight.value = chosenHeight
+    }
+
+    fun setChosenWeight(chosenWeight: Int) {
+        _chosenWeight.value = chosenWeight
     }
 
 }

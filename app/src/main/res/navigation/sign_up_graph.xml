@@ -9,7 +9,7 @@
         android:id="@+id/chooseGenderFragment"
         android:name="com.metehanbolat.healthyweight.ui.login.sign_up.choosegender.ChooseGenderFragment"
         android:label="fragment_choose_gender"
-        tools:layout="@layout/fragment_choose_gender" >
+        tools:layout="@layout/fragment_choose_gender">
         <action
             android:id="@+id/action_chooseGenderFragment_to_chooseHeightFragment"
             app:destination="@id/chooseHeightFragment"
@@ -22,5 +22,31 @@
         android:id="@+id/chooseHeightFragment"
         android:name="com.metehanbolat.healthyweight.ui.login.sign_up.chooseheight.ChooseHeightFragment"
         android:label="fragment_choose_height"
-        tools:layout="@layout/fragment_choose_height" />
+        tools:layout="@layout/fragment_choose_height">
+        <action
+            android:id="@+id/action_chooseHeightFragment_to_chooseWeightFragment"
+            app:destination="@id/chooseWeightFragment"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/chooseWeightFragment"
+        android:name="com.metehanbolat.healthyweight.ui.login.sign_up.choose_weight.ChooseWeightFragment"
+        android:label="ChooseWeightFragment"
+        tools:layout="@layout/fragment_choose_weight">
+        <action
+            android:id="@+id/action_chooseWeightFragment_to_chooseBirthdayFragment"
+            app:destination="@id/chooseBirthdayFragment"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/chooseBirthdayFragment"
+        android:name="com.metehanbolat.healthyweight.ui.login.sign_up.choose_birthday.ChooseBirthdayFragment"
+        android:label="ChooseBirthdayFragment"
+        tools:layout="@layout/fragment_choose_birthday" />
 </navigation>
