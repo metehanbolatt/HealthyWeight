@@ -15,6 +15,7 @@
     <string name="your_height">Boyunuz</string>
     <string name="your_weight">Kilonuz</string>
     <string name="your_birthday">Doğum Tarihiniz</string>
+    <string name="your_personal_information">Kişisel Bilgileriniz</string>
     <string name="next">İleri</string>
 
     <string name="error_text">*Lütfen boş bırakmayınız</string>
