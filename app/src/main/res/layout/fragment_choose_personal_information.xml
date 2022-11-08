@@ -4,28 +4,52 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.login.sign_in.SignInFragment">
+    tools:context=".ui.login.sign_up.chooseheight.ChooseHeightFragment">
 
-    <ImageView
-        android:id="@+id/appLogo"
-        style="@style/AppLogoImageStyle"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        android:layout_marginTop="50dp"
-        android:contentDescription="@string/app_logo"
+    <TextView
+        android:id="@+id/informationText"
+        style="@style/SignUpMemberInformationText"
+        android:text="@string/your_personal_information"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/appName"
-        style="@style/AppNameTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        app:layout_constraintEnd_toEndOf="@id/appLogo"
-        app:layout_constraintStart_toStartOf="@id/appLogo"
-        app:layout_constraintTop_toBottomOf="@id/appLogo" />
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/nameTextInputLayout"
+        style="@style/InputEntryEditTextStyle"
+        android:layout_marginTop="40dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/informationText">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/nameText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/name"
+            android:inputType="text"
+            android:maxLines="1"
+            android:textSize="14sp" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/surnameTextInputLayout"
+        style="@style/InputEntryEditTextStyle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/nameTextInputLayout">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/surnameText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/surname"
+            android:inputType="text"
+            android:maxLines="1"
+            android:textSize="14sp" />
+
+    </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/emailTextInputLayout"
@@ -33,7 +57,7 @@
         app:counterOverflowTextColor="@color/green"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/appName">
+        app:layout_constraintTop_toBottomOf="@id/surnameTextInputLayout">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/emailText"
@@ -66,36 +90,13 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
-        android:id="@+id/enterButton"
+        android:id="@+id/nextButton"
         style="@style/ButtonStyle"
-        android:layout_marginTop="10dp"
-        android:text="@string/button_text_enter"
-        app:layout_constraintEnd_toEndOf="@id/passwordTextInputLayout"
-        app:layout_constraintStart_toStartOf="@id/passwordTextInputLayout"
-        app:layout_constraintTop_toBottomOf="@id/passwordTextInputLayout" />
-
-    <TextView
-        android:id="@+id/signUpInfoText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
-        android:fontFamily="@font/roboto"
-        android:text="@string/not_yet_with_us"
+        android:layout_marginBottom="50dp"
+        android:text="@string/next"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/signUpActionText"
-        app:layout_constraintHorizontal_chainStyle="packed"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/signUpActionText"
-        style="@style/SignUpTextStyle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="2dp"
-        app:layout_constraintBottom_toBottomOf="@id/signUpInfoText"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/signUpInfoText"
-        app:layout_constraintTop_toTopOf="@id/signUpInfoText" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/loadingLottie"

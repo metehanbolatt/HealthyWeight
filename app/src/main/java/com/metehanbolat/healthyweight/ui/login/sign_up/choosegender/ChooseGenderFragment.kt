@@ -42,11 +42,11 @@ class ChooseGenderFragment : Fragment() {
         navViewModelObservers()
 
         binding.genderMale.setOnClickListener {
-            viewModel.chosenMale()
+            viewModel.chosenMale(requireContext())
         }
 
         binding.genderFemale.setOnClickListener {
-            viewModel.chosenFemale()
+            viewModel.chosenFemale(requireContext())
         }
 
         binding.nextButton.setOnClickListener {
@@ -61,7 +61,7 @@ class ChooseGenderFragment : Fragment() {
             val genderInstance = ChosenGenderInstance(
                 genderMaleColor = it.genderMaleColor,
                 genderFemaleColor = it.genderFemaleColor,
-                selectedGenderText = it.selectedGenderText,
+                selectedGenderText = resources.getString(R.string.male),
                 selectedGenderTextColor = it.selectedGenderTextColor
             )
             genderImage(genderInstance = genderInstance)
@@ -71,7 +71,7 @@ class ChooseGenderFragment : Fragment() {
             val genderInstance = ChosenGenderInstance(
                 genderMaleColor = it.genderMaleColor,
                 genderFemaleColor = it.genderFemaleColor,
-                selectedGenderText = it.selectedGenderText,
+                selectedGenderText = resources.getString(R.string.female),
                 selectedGenderTextColor = it.selectedGenderTextColor
             )
             genderImage(genderInstance = genderInstance)

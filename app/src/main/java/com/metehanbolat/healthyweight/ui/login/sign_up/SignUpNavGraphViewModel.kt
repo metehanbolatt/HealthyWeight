@@ -3,6 +3,7 @@ package com.metehanbolat.healthyweight.ui.login.sign_up
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.metehanbolat.healthyweight.model.auth.BirthdayModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
@@ -20,6 +21,9 @@ class SignUpNavGraphViewModel @Inject constructor(
     private val _chosenWeight = MutableLiveData<Int>()
     val chosenWeight: LiveData<Int> = _chosenWeight
 
+    private val _chosenBirthday = MutableLiveData<BirthdayModel>()
+    val chosenBirthday: LiveData<BirthdayModel> = _chosenBirthday
+
     fun setChosenGender(chosenGender: String) {
         _chosenGender.value = chosenGender
     }
@@ -30,6 +34,10 @@ class SignUpNavGraphViewModel @Inject constructor(
 
     fun setChosenWeight(chosenWeight: Int) {
         _chosenWeight.value = chosenWeight
+    }
+
+    fun setChosenBirthday(chosenBirthday: BirthdayModel) {
+        _chosenBirthday.value = chosenBirthday
     }
 
 }

@@ -30,7 +30,7 @@ class AuthRepositoryImpl(
     override fun signUp(member: Member, result: (UiState<Member>) -> Unit) {
         auth.createUserWithEmailAndPassword(member.email, member.password)
             .addOnSuccessListener { success ->
-                result.invoke(UiState.Success(Member(email = success.user?.email!!, password = "123")))
+                result.invoke(UiState.Success(member))
             }
             .addOnFailureListener { failure ->
                 result.invoke(UiState.Failure(failure.localizedMessage))

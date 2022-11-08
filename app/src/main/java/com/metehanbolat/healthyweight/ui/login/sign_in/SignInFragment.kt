@@ -72,7 +72,6 @@ class SignInFragment : Fragment() {
                 }
                 is UiState.Failure -> {
                     binding.loadingLottie.gone()
-                    println(memberState.error)
                     viewVisibilityState(true)
                 }
             }

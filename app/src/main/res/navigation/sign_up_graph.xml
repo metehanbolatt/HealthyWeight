@@ -48,5 +48,18 @@
         android:id="@+id/chooseBirthdayFragment"
         android:name="com.metehanbolat.healthyweight.ui.login.sign_up.choose_birthday.ChooseBirthdayFragment"
         android:label="ChooseBirthdayFragment"
-        tools:layout="@layout/fragment_choose_birthday" />
+        tools:layout="@layout/fragment_choose_birthday">
+        <action
+            android:id="@+id/action_chooseBirthdayFragment_to_choosePersonalInformationFragment"
+            app:destination="@id/choosePersonalInformationFragment"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/choosePersonalInformationFragment"
+        android:name="com.metehanbolat.healthyweight.ui.login.sign_up.choose_personal_information.ChoosePersonalInformationFragment"
+        android:label="ChoosePersonalInformationFragment"
+        tools:layout="@layout/fragment_choose_personal_information" />
 </navigation>

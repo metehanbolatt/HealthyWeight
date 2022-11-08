@@ -8,7 +8,7 @@ class FirestoreRepositoryImpl(
     val firestore: FirebaseFirestore
 ) : FirestoreRepository {
 
-    override fun signUpMember(member: Member, result: (UiState<Member>) -> Unit) {
+    override fun signUpMemberToFirestore(member: Member, result: (UiState<Member>) -> Unit) {
         firestore.collection("members").document().set(member)
             .addOnSuccessListener {
                 result.invoke(UiState.Success(member))

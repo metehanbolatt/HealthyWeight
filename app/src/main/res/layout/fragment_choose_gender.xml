@@ -7,16 +7,11 @@
     tools:context=".ui.login.sign_up.choosegender.ChooseGenderFragment">
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="80dp"
-        android:fontFamily="@font/lemonmilk"
+        style="@style/SignUpMemberInformationText"
         android:text="@string/your_gender"
-        android:textColor="@color/green"
-        android:textSize="38sp"
-        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/genderMale"

@@ -7,26 +7,22 @@
     tools:context=".ui.login.sign_up.chooseheight.ChooseHeightFragment">
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="80dp"
-        android:fontFamily="@font/lemonmilk"
+        style="@style/SignUpMemberInformationText"
         android:text="@string/your_birthday"
-        android:textColor="@color/green"
-        android:textSize="38sp"
-        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <DatePicker
+        android:id="@+id/birthdayPicker"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:datePickerMode="spinner"
         android:calendarViewShown="false"
-        app:layout_constraintStart_toStartOf="parent"
+        android:datePickerMode="spinner"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/nextButton"
