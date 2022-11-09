@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Healthy Weight</string>
 
@@ -24,5 +23,8 @@
     <string name="female">Kadın</string>
 
     <string name="error_text">*Lütfen boş bırakmayınız</string>
+
+    <string name="home">Anasayfa</string>
+    <string name="profile">Profil</string>
 
 </resources>

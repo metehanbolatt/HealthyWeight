@@ -23,4 +23,8 @@
     <string name="female">Female</string>
 
     <string name="error_text">*Please do not leave blank</string>
+
+    <string name="home">Home</string>
+    <string name="profile">Profile</string>
+
 </resources>
