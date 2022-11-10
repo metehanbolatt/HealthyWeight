@@ -26,5 +26,11 @@
 
     <string name="home">Home</string>
     <string name="profile">Profile</string>
+    <string name="profile_photo">Profile Photo</string>
+
+    <string name="body_mass_index">Body Mass Index</string>
+
+    <string name="open">Open</string>
+    <string name="close">Close</string>
 
 </resources>

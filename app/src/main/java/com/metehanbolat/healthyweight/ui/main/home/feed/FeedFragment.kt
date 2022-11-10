@@ -5,7 +5,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.navGraphViewModels
+import com.metehanbolat.healthyweight.R
 import com.metehanbolat.healthyweight.databinding.FragmentFeedBinding
+import com.metehanbolat.healthyweight.ui.main.home.HomeActivityViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -13,6 +16,8 @@ class FeedFragment : Fragment() {
 
     private var _binding: FragmentFeedBinding? = null
     private val binding get() = _binding!!
+
+    private val navViewModel: HomeActivityViewModel by navGraphViewModels(R.id.home_graph)
 
     override fun onCreateView(
         inflater: LayoutInflater,

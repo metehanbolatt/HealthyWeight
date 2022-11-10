@@ -15,4 +15,8 @@
     <color name="gender_female_color">#FF21A6</color>
     <color name="gender_color_unselected">#5A5A5A</color>
 
+    <color name="nav_header_color">#FFFFFF</color>
+    <color name="nav_header_text_color">#000000</color>
+    <color name="nav_header_sub_text_color">#4E4E4E</color>
+
 </resources>

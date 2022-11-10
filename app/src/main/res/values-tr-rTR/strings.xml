@@ -26,5 +26,11 @@
 
     <string name="home">Anasayfa</string>
     <string name="profile">Profil</string>
+    <string name="profile_photo">Profil Fotoğrafı</string>
+
+    <string name="body_mass_index">Vücut Kitle İndeksi</string>
+
+    <string name="open">Açık</string>
+    <string name="close">Kapalı</string>
 
 </resources>
