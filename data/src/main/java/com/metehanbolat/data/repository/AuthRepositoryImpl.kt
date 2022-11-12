@@ -1,21 +1,22 @@
-package com.metehanbolat.healthyweight.repository.auth
+package com.metehanbolat.data.repository
 
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
-import com.metehanbolat.healthyweight.model.auth.Member
-import com.metehanbolat.healthyweight.util.UiState
+import com.metehanbolat.data.model.auth.Member
+import com.metehanbolat.domain.common.Resource
+import com.metehanbolat.domain.repository.AuthRepository
 
 class AuthRepositoryImpl(
     val auth: FirebaseAuth
 ) : AuthRepository {
 
-    override fun signIn(member: Member, result: (UiState<FirebaseUser>) -> Unit) {
+    override fun signIn(member: Member, result: (Resource<FirebaseUser>) -> Unit) {
         auth.signInWithEmailAndPassword(member.email, member.password)
             .addOnSuccessListener { success ->
-                success.user?.let { result.invoke(UiState.Success(it)) }
+                success.user?.let { result.invoke(Resource.Success(it)) }
             }
             .addOnFailureListener { failure ->
-                result.invoke(UiState.Failure(failure.localizedMessage))
+                result.invoke(Resource.Failure(failure.localizedMessage))
             }
 
     }
@@ -27,13 +28,13 @@ class AuthRepositoryImpl(
         }
     }
 
-    override fun signUp(member: Member, result: (UiState<Member>) -> Unit) {
+    override fun signUp(member: Member, result: (Resource<Member>) -> Unit) {
         auth.createUserWithEmailAndPassword(member.email, member.password)
             .addOnSuccessListener { success ->
-                result.invoke(UiState.Success(member))
+                result.invoke(Resource.Success(member))
             }
             .addOnFailureListener { failure ->
-                result.invoke(UiState.Failure(failure.localizedMessage))
+                result.invoke(Resource.Failure(failure.localizedMessage))
             }
     }
 

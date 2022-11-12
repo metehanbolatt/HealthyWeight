@@ -3,7 +3,7 @@ package com.metehanbolat.healthyweight.ui.login.sign_up
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.metehanbolat.healthyweight.model.auth.BirthdayModel
+import com.metehanbolat.domain.model.BirthdayModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 

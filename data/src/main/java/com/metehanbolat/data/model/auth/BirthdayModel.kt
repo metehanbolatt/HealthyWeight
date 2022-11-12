@@ -1,4 +1,4 @@
-package com.metehanbolat.healthyweight.model.auth
+package com.metehanbolat.data.model.auth
 
 data class BirthdayModel(
     val day: String,

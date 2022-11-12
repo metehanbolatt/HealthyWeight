@@ -3,38 +3,47 @@ package com.metehanbolat.healthyweight.ui.login.sign_in
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.google.firebase.auth.FirebaseUser
-import com.metehanbolat.healthyweight.model.auth.Member
-import com.metehanbolat.healthyweight.repository.auth.AuthRepository
-import com.metehanbolat.healthyweight.util.UiState
+import com.metehanbolat.domain.common.Resource
+import com.metehanbolat.domain.model.Member
+import com.metehanbolat.domain.repository.AuthRepository
+import com.metehanbolat.domain.use_case.SignInUseCase
+import com.metehanbolat.healthyweight.model.UserState
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.flow.onEach
 import javax.inject.Inject
 
 @HiltViewModel
 class SignInActivityViewModel @Inject constructor(
-    private val repository: AuthRepository
+    private val signInUseCase: SignInUseCase
 ) : ViewModel() {
 
-    private val _signInMember = MutableLiveData<UiState<FirebaseUser>>()
-    val signInMember: LiveData<UiState<FirebaseUser>> get() =  _signInMember
+    private val _signInMember = MutableLiveData<UserState>()
+    val signInMember: LiveData<UserState> get() =  _signInMember
 
-    private val _currentUser = MutableLiveData<FirebaseUser>()
-    val currentUser: LiveData<FirebaseUser> = _currentUser
+    private val _currentUser = MutableLiveData<UserState>()
+    val currentUser: LiveData<UserState> = _currentUser
 
     init {
         currentUserControl()
     }
 
     private fun currentUserControl() {
-        repository.currentUser {
-            _currentUser.value = it
-        }
+
     }
 
     fun signInMember(member: Member) {
-        _signInMember.value = UiState.Loading
-        repository.signIn(member = member) {
-            _signInMember.value = it
+        signInUseCase(member).onEach { result ->
+            when (result) {
+                is Resource.Loading -> {
+                    _signInMember.value = UserState(isLoading = true)
+                }
+                is Resource.Success -> {
+                    _signInMember.value = UserState(user = result.data)
+                }
+                is Resource.Failure -> {
+                    _signInMember.value = UserState(error = result.error ?: "An unexpected error occurred!")
+                }
+            }
         }
     }
 

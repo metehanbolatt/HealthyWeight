@@ -1,4 +1,4 @@
-package com.metehanbolat.healthyweight.di
+package com.metehanbolat.data.di
 
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore

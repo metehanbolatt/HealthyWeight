@@ -7,9 +7,9 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.navGraphViewModels
+import com.metehanbolat.domain.model.BirthdayModel
 import com.metehanbolat.healthyweight.R
 import com.metehanbolat.healthyweight.databinding.FragmentChooseBirthdayBinding
-import com.metehanbolat.healthyweight.model.auth.BirthdayModel
 import com.metehanbolat.healthyweight.ui.login.sign_up.SignUpNavGraphViewModel
 import dagger.hilt.android.AndroidEntryPoint
 

@@ -6,7 +6,6 @@ import androidx.lifecycle.ViewModel
 import com.metehanbolat.healthyweight.model.auth.Member
 import com.metehanbolat.healthyweight.repository.auth.AuthRepository
 import com.metehanbolat.healthyweight.repository.firestore.FirestoreRepository
-import com.metehanbolat.healthyweight.util.UiState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
@@ -16,21 +15,21 @@ class ChoosePersonalInformationFragmentViewModel @Inject constructor(
     private val firestoreRepository: FirestoreRepository
 ): ViewModel() {
 
-    private val _signUpMemberToAuth = MutableLiveData<UiState<Member>>()
-    val signUpMemberToAuth: LiveData<UiState<Member>> get() =  _signUpMemberToAuth
+    private val _signUpMemberToAuth = MutableLiveData<com.metehanbolat.domain.common.Resource<Member>>()
+    val signUpMemberToAuth: LiveData<com.metehanbolat.domain.common.Resource<Member>> get() =  _signUpMemberToAuth
 
-    private val _signUpMemberToFirestore = MutableLiveData<UiState<Member>>()
-    val signUpMemberToFirestore: LiveData<UiState<Member>> get() =  _signUpMemberToFirestore
+    private val _signUpMemberToFirestore = MutableLiveData<com.metehanbolat.domain.common.Resource<Member>>()
+    val signUpMemberToFirestore: LiveData<com.metehanbolat.domain.common.Resource<Member>> get() =  _signUpMemberToFirestore
 
     fun signUpMemberToAuth(member: Member) {
-        _signUpMemberToAuth.value = UiState.Loading
+        _signUpMemberToAuth.value = com.metehanbolat.domain.common.Resource.Loading
         authRepository.signUp(member) {
             _signUpMemberToAuth.value = it
         }
     }
 
     fun signUpMemberToFirestore(member: Member) {
-        _signUpMemberToFirestore.value = UiState.Loading
+        _signUpMemberToFirestore.value = com.metehanbolat.domain.common.Resource.Loading
         firestoreRepository.signUpMemberToFirestore(member) {
             _signUpMemberToFirestore.value = it
         }

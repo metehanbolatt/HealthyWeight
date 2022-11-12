@@ -8,12 +8,11 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.navGraphViewModels
+import com.metehanbolat.domain.model.Member
 import com.metehanbolat.healthyweight.R
 import com.metehanbolat.healthyweight.databinding.FragmentChoosePersonalInformationBinding
-import com.metehanbolat.healthyweight.model.auth.Member
 import com.metehanbolat.healthyweight.ui.login.sign_up.SignUpNavGraphViewModel
 import com.metehanbolat.healthyweight.ui.main.home.HomeActivity
-import com.metehanbolat.healthyweight.util.UiState
 import com.metehanbolat.healthyweight.util.gone
 import com.metehanbolat.healthyweight.util.validateRule
 import com.metehanbolat.healthyweight.util.visible
@@ -56,42 +55,6 @@ class ChoosePersonalInformationFragment : Fragment() {
             }
         }
 
-        viewModel.signUpMemberToAuth.observe(viewLifecycleOwner) { state ->
-            when (state) {
-                is UiState.Loading -> {
-                    binding.loadingLottie.visible()
-                    viewVisibilityState(false)
-                }
-                is UiState.Success -> {
-                    binding.loadingLottie.gone()
-                    viewModel.signUpMemberToFirestore(state.data)
-                }
-                is UiState.Failure -> {
-                    binding.loadingLottie.gone()
-                    viewVisibilityState(true)
-                }
-            }
-        }
-
-        viewModel.signUpMemberToFirestore.observe(viewLifecycleOwner) { state ->
-            when (state) {
-                is UiState.Loading -> {
-                    binding.loadingLottie.visible()
-                    viewVisibilityState(false)
-                }
-                is UiState.Success -> {
-                    binding.loadingLottie.gone()
-                    Intent(requireContext(), HomeActivity::class.java).apply {
-                        startActivity(this)
-                        requireActivity().finish()
-                    }
-                }
-                is UiState.Failure -> {
-                    binding.loadingLottie.gone()
-                    viewVisibilityState(true)
-                }
-            }
-        }
     }
 
     private fun emptyFieldControl(): Boolean {

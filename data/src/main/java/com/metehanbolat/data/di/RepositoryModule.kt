@@ -1,11 +1,11 @@
-package com.metehanbolat.healthyweight.di
+package com.metehanbolat.data.di
 
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
-import com.metehanbolat.healthyweight.repository.auth.AuthRepository
-import com.metehanbolat.healthyweight.repository.auth.AuthRepositoryImpl
-import com.metehanbolat.healthyweight.repository.firestore.FirestoreRepository
-import com.metehanbolat.healthyweight.repository.firestore.FirestoreRepositoryImpl
+import com.metehanbolat.data.repository.AuthRepositoryImpl
+import com.metehanbolat.data.repository.FirestoreRepositoryImpl
+import com.metehanbolat.domain.repository.AuthRepository
+import com.metehanbolat.domain.repository.FirestoreRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

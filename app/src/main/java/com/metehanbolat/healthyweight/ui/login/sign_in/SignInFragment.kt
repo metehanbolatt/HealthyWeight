@@ -8,9 +8,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
+import com.metehanbolat.domain.model.Member
 import com.metehanbolat.healthyweight.R
 import com.metehanbolat.healthyweight.databinding.FragmentSignInBinding
-import com.metehanbolat.healthyweight.model.auth.Member
 import com.metehanbolat.healthyweight.ui.main.home.HomeActivity
 import com.metehanbolat.healthyweight.util.*
 import dagger.hilt.android.AndroidEntryPoint
@@ -58,21 +58,18 @@ class SignInFragment : Fragment() {
 
     private fun buttonClickObserver() {
         activityViewModel.signInMember.observe(viewLifecycleOwner) { memberState ->
-            when (memberState) {
-                is UiState.Loading -> {
-                    binding.loadingLottie.visible()
-                    viewVisibilityState(false)
-                }
-                is UiState.Success -> {
+            if (memberState.isLoading) {
+                binding.loadingLottie.visible()
+                viewVisibilityState(false)
+                if (memberState.error.isNotBlank()) {
+                    binding.loadingLottie.gone()
+                    viewVisibilityState(true)
+                } else {
                     binding.loadingLottie.gone()
                     Intent(requireActivity(), HomeActivity::class.java).apply {
                         startActivity(this)
                         requireActivity().finish()
                     }
-                }
-                is UiState.Failure -> {
-                    binding.loadingLottie.gone()
-                    viewVisibilityState(true)
                 }
             }
         }

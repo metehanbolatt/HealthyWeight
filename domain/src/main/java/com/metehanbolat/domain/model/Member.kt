@@ -1,4 +1,4 @@
-package com.metehanbolat.healthyweight.model.auth
+package com.metehanbolat.domain.model
 
 data class Member(
     val name: String? = null,
