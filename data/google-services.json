@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "240435326067",
+    "project_id": "healthy-weight-4ccae",
+    "storage_bucket": "healthy-weight-4ccae.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:240435326067:android:fb8be25565f7c0a1e44e06",
+        "android_client_info": {
+          "package_name": "com.metehanbolat.data"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "240435326067-cndb9mulqdn6nt696jt1i0oarmju6kvs.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAUdJbDX7EWuak09XGUKQ7l0S5_xa_lNN8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "240435326067-cndb9mulqdn6nt696jt1i0oarmju6kvs.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:240435326067:android:100542d49c3b3e59e44e06",
+        "android_client_info": {
+          "package_name": "com.metehanbolat.healthyweight"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "240435326067-cndb9mulqdn6nt696jt1i0oarmju6kvs.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAUdJbDX7EWuak09XGUKQ7l0S5_xa_lNN8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "240435326067-cndb9mulqdn6nt696jt1i0oarmju6kvs.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

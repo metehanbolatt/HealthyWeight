@@ -1,8 +1,7 @@
 package com.metehanbolat.data.repository
 
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseUser
-import com.metehanbolat.data.model.auth.Member
+import com.metehanbolat.domain.model.Member
 import com.metehanbolat.domain.common.Resource
 import com.metehanbolat.domain.repository.AuthRepository
 
@@ -10,10 +9,10 @@ class AuthRepositoryImpl(
     val auth: FirebaseAuth
 ) : AuthRepository {
 
-    override fun signIn(member: Member, result: (Resource<FirebaseUser>) -> Unit) {
-        auth.signInWithEmailAndPassword(member.email, member.password)
+    override fun signIn(member: Member, result: (Resource<String>) -> Unit) {
+        auth.signInWithEmailAndPassword(member.email!!, member.password!!)
             .addOnSuccessListener { success ->
-                success.user?.let { result.invoke(Resource.Success(it)) }
+                success.user?.let { result.invoke(Resource.Success(it.email ?: "")) }
             }
             .addOnFailureListener { failure ->
                 result.invoke(Resource.Failure(failure.localizedMessage))
@@ -29,7 +28,7 @@ class AuthRepositoryImpl(
     }
 
     override fun signUp(member: Member, result: (Resource<Member>) -> Unit) {
-        auth.createUserWithEmailAndPassword(member.email, member.password)
+        auth.createUserWithEmailAndPassword(member.email!!, member.password!!)
             .addOnSuccessListener { success ->
                 result.invoke(Resource.Success(member))
             }
@@ -38,10 +37,10 @@ class AuthRepositoryImpl(
             }
     }
 
-    override fun currentUser(result: (FirebaseUser) -> Unit) {
+    override fun currentUser(result: (String) -> Unit) {
         val currentUser = auth.currentUser
         if (currentUser != null) {
-            result.invoke(currentUser)
+            result.invoke(currentUser.email ?: "")
         }
     }
 }

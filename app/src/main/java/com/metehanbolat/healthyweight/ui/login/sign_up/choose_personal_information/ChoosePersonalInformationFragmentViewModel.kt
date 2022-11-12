@@ -3,9 +3,9 @@ package com.metehanbolat.healthyweight.ui.login.sign_up.choose_personal_informat
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.metehanbolat.healthyweight.model.auth.Member
-import com.metehanbolat.healthyweight.repository.auth.AuthRepository
-import com.metehanbolat.healthyweight.repository.firestore.FirestoreRepository
+import com.metehanbolat.domain.model.Member
+import com.metehanbolat.domain.repository.AuthRepository
+import com.metehanbolat.domain.repository.FirestoreRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 

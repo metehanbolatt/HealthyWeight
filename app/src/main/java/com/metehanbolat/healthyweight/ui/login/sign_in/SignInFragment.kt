@@ -61,15 +61,16 @@ class SignInFragment : Fragment() {
             if (memberState.isLoading) {
                 binding.loadingLottie.visible()
                 viewVisibilityState(false)
-                if (memberState.error.isNotBlank()) {
-                    binding.loadingLottie.gone()
-                    viewVisibilityState(true)
-                } else {
-                    binding.loadingLottie.gone()
-                    Intent(requireActivity(), HomeActivity::class.java).apply {
-                        startActivity(this)
-                        requireActivity().finish()
-                    }
+            }
+            if (memberState.error.isNotBlank()) {
+                binding.loadingLottie.gone()
+                viewVisibilityState(true)
+            }
+            if (memberState.user != null) {
+                binding.loadingLottie.gone()
+                Intent(requireActivity(), HomeActivity::class.java).apply {
+                    startActivity(this)
+                    requireActivity().finish()
                 }
             }
         }
