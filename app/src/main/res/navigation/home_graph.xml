@@ -3,16 +3,21 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/home_graph"
-    app:startDestination="@id/feedFragment">
+    app:startDestination="@id/homeFragment">
 
     <fragment
-        android:id="@+id/feedFragment"
-        android:name="com.metehanbolat.healthyweight.ui.main.home.feed.FeedFragment"
-        android:label="FeedFragment"
-        tools:layout="@layout/fragment_feed" />
+        android:id="@+id/homeFragment"
+        android:name="com.metehanbolat.healthyweight.ui.main.home.home.HomeFragment"
+        android:label="HomeFragment"
+        tools:layout="@layout/fragment_home" />
     <fragment
         android:id="@+id/profileFragment"
         android:name="com.metehanbolat.healthyweight.ui.main.home.profile.ProfileFragment"
         android:label="ProfileFragment"
-        tools:layout="@layout/fragment_feed" />
+        tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/bodyMassIndexFragment"
+        android:name="com.metehanbolat.healthyweight.ui.main.home.body_mass_index.BodyMassIndexFragment"
+        android:label="BodyMassIndexFragment"
+        tools:layout="@layout/fragment_body_mass_index" />
 </navigation>

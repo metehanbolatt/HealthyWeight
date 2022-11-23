@@ -38,8 +38,7 @@ class SignInActivityViewModel @Inject constructor(
                     _signInMember.value = UserState(user = Member(email = result.data))
                 }
                 is Resource.Failure -> {
-                    _signInMember.value = UserState(user = Member(email = result.error))
-                    println(result.error)
+                    _signInMember.value = UserState(error = result.error.toString())
                 }
                 is Resource.Loading -> {
                     _signInMember.value = UserState(isLoading = true)

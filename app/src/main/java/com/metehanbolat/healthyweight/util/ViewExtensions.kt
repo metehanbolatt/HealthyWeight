@@ -31,6 +31,7 @@ fun View.gone() {
     this.visibility = View.GONE
 }
 
+
 @SuppressLint("ClickableViewAccessibility")
 fun View.lostFocusList(viewList: List<View>, activity: Activity) {
     this.setOnTouchListener { _, event ->

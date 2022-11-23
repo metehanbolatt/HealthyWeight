@@ -10,6 +10,7 @@ class AuthRepositoryImpl(
 ) : AuthRepository {
 
     override fun signIn(member: Member, result: (Resource<String>) -> Unit) {
+        result.invoke(Resource.Loading)
         auth.signInWithEmailAndPassword(member.email!!, member.password!!)
             .addOnSuccessListener { success ->
                 success.user?.let { result.invoke(Resource.Success(it.email ?: "")) }
@@ -28,9 +29,10 @@ class AuthRepositoryImpl(
     }
 
     override fun signUp(member: Member, result: (Resource<Member>) -> Unit) {
+        result.invoke(Resource.Loading)
         auth.createUserWithEmailAndPassword(member.email!!, member.password!!)
             .addOnSuccessListener { success ->
-                result.invoke(Resource.Success(member))
+                success.user?.let { result.invoke(Resource.Success(member)) }
             }
             .addOnFailureListener { failure ->
                 result.invoke(Resource.Failure(failure.localizedMessage))

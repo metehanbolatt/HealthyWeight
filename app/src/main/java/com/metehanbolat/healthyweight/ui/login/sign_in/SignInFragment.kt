@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
+import com.google.android.material.snackbar.Snackbar
 import com.metehanbolat.domain.model.Member
 import com.metehanbolat.healthyweight.R
 import com.metehanbolat.healthyweight.databinding.FragmentSignInBinding
@@ -65,6 +66,7 @@ class SignInFragment : Fragment() {
             if (memberState.error.isNotBlank()) {
                 binding.loadingLottie.gone()
                 viewVisibilityState(true)
+                Snackbar.make(binding.root, memberState.error, Snackbar.LENGTH_LONG).show()
             }
             if (memberState.user != null) {
                 binding.loadingLottie.gone()
