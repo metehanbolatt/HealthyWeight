@@ -8,7 +8,8 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.navGraphViewModels
-import com.metehanbolat.domain.model.Member
+import com.google.android.material.snackbar.Snackbar
+import com.metehanbolat.domain.model.User
 import com.metehanbolat.healthyweight.R
 import com.metehanbolat.healthyweight.databinding.FragmentChoosePersonalInformationBinding
 import com.metehanbolat.healthyweight.ui.login.sign_up.SignUpNavGraphViewModel
@@ -39,9 +40,11 @@ class ChoosePersonalInformationFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        observers()
+
         binding.nextButton.setOnClickListener {
             if (emptyFieldControl()) {
-                val member = Member(
+                val user = User(
                     name = binding.nameText.text.toString(),
                     surname = binding.surnameText.text.toString(),
                     email = binding.emailText.text.toString(),
@@ -51,10 +54,42 @@ class ChoosePersonalInformationFragment : Fragment() {
                     height = navGraphViewModel.chosenHeight.value.toString(),
                     gender = navGraphViewModel.chosenGender.value
                 )
-                viewModel.signUpMemberToAuth(member)
+                viewModel.signUpMemberToFirestore(user)
+            }
+        }
+    }
+
+    private fun observers() {
+        viewModel.signUpMemberToFirestore.observe(viewLifecycleOwner) { userState ->
+            if (userState.isLoading) {
+                binding.loadingLottie.visible()
+                viewVisibilityState(false)
+            }
+            if (userState.error.isNotBlank()) {
+                binding.loadingLottie.gone()
+                viewVisibilityState(true)
+                Snackbar.make(binding.root, userState.error, Snackbar.LENGTH_LONG).show()
             }
         }
 
+        viewModel.signUpMemberToAuth.observe(viewLifecycleOwner) { userState ->
+            if (userState.isLoading) {
+                binding.loadingLottie.visible()
+                viewVisibilityState(false)
+            }
+            if (userState.error.isNotBlank()) {
+                binding.loadingLottie.gone()
+                viewVisibilityState(true)
+                Snackbar.make(binding.root, userState.error, Snackbar.LENGTH_LONG).show()
+            }
+            if (userState.user != null) {
+                binding.loadingLottie.gone()
+                Intent(requireActivity(), HomeActivity::class.java).apply {
+                    startActivity(this)
+                    requireActivity().finish()
+                }
+            }
+        }
     }
 
     private fun emptyFieldControl(): Boolean {

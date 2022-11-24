@@ -1,6 +1,6 @@
 package com.metehanbolat.domain.model
 
-data class Member(
+data class User(
     val name: String? = null,
     val surname: String? = null,
     val birthday: BirthdayModel? = null,

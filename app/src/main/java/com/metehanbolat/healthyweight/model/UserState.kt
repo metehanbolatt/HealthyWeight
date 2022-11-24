@@ -1,9 +1,9 @@
 package com.metehanbolat.healthyweight.model
 
-import com.metehanbolat.domain.model.Member
+import com.metehanbolat.domain.model.User
 
 data class UserState(
     val isLoading: Boolean = false,
-    val user: Member? = null,
+    val user: User? = null,
     val error: String = ""
 )

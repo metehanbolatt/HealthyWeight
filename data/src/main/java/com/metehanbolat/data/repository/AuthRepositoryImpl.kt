@@ -1,7 +1,7 @@
 package com.metehanbolat.data.repository
 
 import com.google.firebase.auth.FirebaseAuth
-import com.metehanbolat.domain.model.Member
+import com.metehanbolat.domain.model.User
 import com.metehanbolat.domain.common.Resource
 import com.metehanbolat.domain.repository.AuthRepository
 
@@ -9,7 +9,7 @@ class AuthRepositoryImpl(
     val auth: FirebaseAuth
 ) : AuthRepository {
 
-    override fun signIn(member: Member, result: (Resource<String>) -> Unit) {
+    override fun signIn(member: User, result: (Resource<String>) -> Unit) {
         result.invoke(Resource.Loading)
         auth.signInWithEmailAndPassword(member.email!!, member.password!!)
             .addOnSuccessListener { success ->
@@ -28,7 +28,7 @@ class AuthRepositoryImpl(
         }
     }
 
-    override fun signUp(member: Member, result: (Resource<Member>) -> Unit) {
+    override fun signUp(member: User, result: (Resource<User>) -> Unit) {
         result.invoke(Resource.Loading)
         auth.createUserWithEmailAndPassword(member.email!!, member.password!!)
             .addOnSuccessListener { success ->

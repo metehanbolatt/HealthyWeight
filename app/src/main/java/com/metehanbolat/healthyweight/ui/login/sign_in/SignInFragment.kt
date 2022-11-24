@@ -9,7 +9,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.snackbar.Snackbar
-import com.metehanbolat.domain.model.Member
+import com.metehanbolat.domain.model.User
 import com.metehanbolat.healthyweight.R
 import com.metehanbolat.healthyweight.databinding.FragmentSignInBinding
 import com.metehanbolat.healthyweight.ui.main.home.HomeActivity
@@ -46,7 +46,7 @@ class SignInFragment : Fragment() {
             if (emptyFieldControl()) {
                 val email = binding.emailText.text.toString()
                 val password = binding.passwordText.text.toString()
-                val member = Member(email = email, password = password)
+                val member = User(email = email, password = password)
                 activityViewModel.signInMember(member)
             }
         }
@@ -58,17 +58,17 @@ class SignInFragment : Fragment() {
     }
 
     private fun buttonClickObserver() {
-        activityViewModel.signInMember.observe(viewLifecycleOwner) { memberState ->
-            if (memberState.isLoading) {
+        activityViewModel.signInMember.observe(viewLifecycleOwner) { userState ->
+            if (userState.isLoading) {
                 binding.loadingLottie.visible()
                 viewVisibilityState(false)
             }
-            if (memberState.error.isNotBlank()) {
+            if (userState.error.isNotBlank()) {
                 binding.loadingLottie.gone()
                 viewVisibilityState(true)
-                Snackbar.make(binding.root, memberState.error, Snackbar.LENGTH_LONG).show()
+                Snackbar.make(binding.root, userState.error, Snackbar.LENGTH_LONG).show()
             }
-            if (memberState.user != null) {
+            if (userState.user != null) {
                 binding.loadingLottie.gone()
                 Intent(requireActivity(), HomeActivity::class.java).apply {
                     startActivity(this)

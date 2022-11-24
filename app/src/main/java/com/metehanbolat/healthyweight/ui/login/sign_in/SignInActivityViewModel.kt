@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.metehanbolat.domain.common.Resource
-import com.metehanbolat.domain.model.Member
+import com.metehanbolat.domain.model.User
 import com.metehanbolat.domain.repository.AuthRepository
 import com.metehanbolat.healthyweight.model.UserState
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -31,11 +31,11 @@ class SignInActivityViewModel @Inject constructor(
         }
     }
 
-    fun signInMember(member: Member) {
+    fun signInMember(member: User) {
         repository.signIn(member = member) { result ->
             when (result) {
                 is Resource.Success -> {
-                    _signInMember.value = UserState(user = Member(email = result.data))
+                    _signInMember.value = UserState(user = User(email = result.data))
                 }
                 is Resource.Failure -> {
                     _signInMember.value = UserState(error = result.error.toString())
