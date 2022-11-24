@@ -39,7 +39,7 @@ class ChooseBirthdayFragment : Fragment() {
             binding.birthdayPicker.apply {
                 val birthday = BirthdayModel(
                     day = dayOfMonth.toString(),
-                    month = month.toString(),
+                    month = (month + 1).toString(),
                     year = year.toString()
                 )
                 navGraphViewModel.setChosenBirthday(birthday)
