@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.viewModels
+import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import com.metehanbolat.healthyweight.databinding.ActivitySignInBinding
 import com.metehanbolat.healthyweight.ui.main.home.HomeActivity
 import dagger.hilt.android.AndroidEntryPoint
@@ -22,9 +23,11 @@ class SignInActivity : AppCompatActivity(){
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        installSplashScreen()
         binding = ActivitySignInBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
+
 
     }
 
